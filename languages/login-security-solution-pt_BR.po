@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Login Security Solution 0.28.0\n"
+"Project-Id-Version: Login Security Solution 0.29.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/login-security-"
 "solution\n"
 "POT-Creation-Date: 2012-09-15 02:40:36+00:00\n"
-"PO-Revision-Date: 2012-09-15 12:56:00-04:00\n"
+"PO-Revision-Date: 2012-09-15 21:49:00-04:00\n"
 "Last-Translator: Valdir Trombini <valdirtrombini@hotmail.com>\n"
 "Language-Team: Valdir Trombini <valdirtrombini@hotmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -538,7 +538,7 @@ msgstr "INVASÃO EM POTENCIAL %s"
 
 #: login-security-solution.php:1852
 msgid "Your website, %s, may have been broken in to."
-msgstr "Seu website,%s, pode ter sido arrombado e invadido."
+msgstr "Seu website, %s, pode ter sido arrombado e invadido."
 
 #: login-security-solution.php:1855
 msgid ""
@@ -586,7 +586,7 @@ msgid ""
 "in?  We are asking because the site happens to be under attack at the moment."
 msgstr ""
 "Alguém acaba de se conectar em sua conta '%s'. Foi você que se conectou %s? "
-"Estamos perguntando porque o site pode estar sob ataque neste momento"
+"Estamos perguntando porque o site pode estar sob ataque neste momento."
 
 #: login-security-solution.php:1894
 msgid "If it was NOT YOU, please do the following right away:"
