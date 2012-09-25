@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=danie
 Tags: login, password, passwords, strength, strong, strong passwords, password strength, idle, timeout, maintenance, security, attack, hack, lock, lockdown, ban, brute force, brute, force, authentication, auth, cookie, users
 Requires at least: 3.3
 Tested up to: 3.4.1
-Stable tag: 0.30.0
+Stable tag: trunk
 
 Security against brute force attacks by tracking IP, name, password; requiring very strong passwords. Idle timeout. Maintenance mode lockdown.
 
@@ -92,12 +92,16 @@ The tests have caught every password dictionary entry I've tried.
 
 For reference, the similar plugins include:
 
+* [6Scan Security](http://wordpress.org/extend/plugins/6scan-protection/)
 * [Better WP Security](http://wordpress.org/extend/plugins/better-wp-security/)
+* [Enforce Strong Password](http://wordpress.org/extend/plugins/enforce-strong-password/)
+* [Force Strong Passwords](http://wordpress.org/extend/plugins/force-strong-passwords/)
 * [Limit Login Attempts](http://wordpress.org/extend/plugins/limit-login-attempts/)
 * [Login Lock](http://wordpress.org/extend/plugins/login-lock/)
 * [Login LockDown](http://wordpress.org/extend/plugins/login-lockdown/)
 * [PMC Lockdown](http://wordpress.org/extend/plugins/pmc-lockdown/)
 * [Simple Login Lockdown](http://wordpress.org/extend/plugins/simple-login-lockdown/)
+* [Wordfence Security](http://wordpress.org/extend/plugins/wordfence/)
 
 
 = Compatibility with Other Plugins =
@@ -112,7 +116,7 @@ conflicts during program execution.  Please read the FAQ!
 * Português, Brasil (Portugese, Brazil) (pt_BR) by Valdir Trombini
 
 
-= Why Strong, Unique Passwords Are Important =
+= Strong, Unique Passwords Are Important =
 
 Yeah, creating, storing/remembering, and using a __different__, __strong__
 password for each site you use is a hassle.  _But it is absolutely
@@ -367,6 +371,10 @@ implementation, use the scripts I made for generating all of the `.po` and
 
 
 == Changelog ==
+
+= 0.31.0 (2012-09-25) =
+* Have breach notification emails detail the exact situation depending on
+the system's settings.
 
 = 0.30.0 (2012-09-17) =
 * Translate "Confirm" and "No thanks" phrases on the settings screen.
