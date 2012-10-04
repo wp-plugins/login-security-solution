@@ -3,7 +3,7 @@ Contributors: convissor
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=danielc%40analysisandsolutions%2ecom&lc=US&item_name=Donate%3a%20Login%20Security%20Solution&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: login, password, passwords, strength, strong, strong passwords, password strength, idle, timeout, maintenance, security, attack, hack, lock, lockdown, ban, brute force, brute, force, authentication, auth, cookie, users
 Requires at least: 3.3
-Tested up to: 3.4.1
+Tested up to: 3.5beta1
 Stable tag: trunk
 
 Security against brute force attacks by tracking IP, name, password; requiring very strong passwords. Idle timeout. Maintenance mode lockdown.
@@ -260,6 +260,8 @@ The plugin needs to be installed and activated before running the tests.
 To execute the tests, `cd` into this plugin's directory and
 call `phpunit tests`
 
+Translations can be tested by changing the `WPLANG` value in `wp-config.php`.
+
 Please note that the tests make extensive use of database transactions.
 Many tests will be skipped if your `wp_options` and `wp_usermeta` tables
 are not using the `InnoDB` storage engine.
@@ -320,16 +322,54 @@ Anyway, my real question for you is "Did they get in?"  I'll bet not.  The
 strong passwords this plugin requires from your users lowers the chances of
 someone breaking in to just about zero.
 
-And even if they _do_ get in, Login Security Solution realizes they're
-miscreants and kicks them right out.
+And even if they _do_ get lucky and figure out a password, Login Security
+Solution realizes they're miscreants and kicks them out.
 
-= Why use slowdowns instead of lockouts? =
+= Will you provide lock outs / blocks in addition to slow downs? =
 
-The best way to go here is a subject open to debate.  (Hey what isn't?)
-I chose the slowdown approach because it keeps legitimate users and
-administrators from being inconvenienced.  Plus it provides a quick sand
-trap that ties up attackers' resources instead of immediately tipping them
-off that the jig is up.
+If you look at it the right way, Login Security Solution provides lockouts
+(where "lockout" means "denies access" to attackers.)  Below is a comparison
+of the attack handling logic used by Limit Login Attempts and Login Security
+Solution.
+
+    __Limit Login Attempts__
+
+    * _Invalid or Valid Credentials by Attacker or Actual User_
+
+        1) Process authentication request (check IP address)
+        1) Error message: "Too many failed login attempts." (ACCESS DENIED.)
+
+    Note, this approach means an actual user can be denied access for 12 hours after making 4 mistakes.
+
+
+    __Login Security Solution__
+
+    * _Invalid Credentials by Attacker or Actual User_
+
+        1) Process authentication request (check IP, user name, and password)
+        1) Slow down the response
+        1) Error message: "Incorrect username or password." (ACCESS DENIED.)
+
+    * _Valid Credentials by Attacker_
+
+        1) Process authentication request (check IP, user name, and password)
+        1) Slow down the response
+        1) Set force password change flag for user
+        1) Error message: "Your password must be reset. Please submit this form to reset it." (ACCESS DENIED.)
+
+    * _Valid Credentials by Actual User_
+
+        1) Process authentication request (check IP, user name, and password)
+        1) (If user is coming from their verified IP address, let them in, END)
+        1) Slow down the response
+        1) Error message: "Your password must be reset. Please submit this form to reset it." (ACCESS DENIED.)
+        1) On subsequent request... user verifies their identity via password reset process
+        1) User's IP address is added to their verified IP list for future reference
+
+So both plugins deny access to attackers. But Login Security Solution has
+the bonuses of letting legitimate users log in and slowing the attacks down.
+Plus LSS monitors user names, passwords, and IP's for attacks, while all of
+the other plugins just watch the IP address.
 
 = Won't the slowdowns open my website to Denial of Service (DOS) attacks? =
 
@@ -371,6 +411,15 @@ implementation, use the scripts I made for generating all of the `.po` and
 
 
 == Changelog ==
+
+= 0.32.0 (2012-10-04) =
+* SIGNIFICANT CHANGE:  Reduce the number of emails sent to administrators:
+add the "Multiple Failure Notifications" setting and make the default "No."
+* Remove the (supurfluous) "If it WAS YOU..." part of the user notification
+emails.
+* Use `wp_cache_flush()` in unit tests, `wp_cache_reset()` deprecated in 3.5.
+* Unit tests pass using PHP 5.4.5-dev, 5.3.16-dev.
+* Tested under WordPress 3.4.2 and 3.5beta1 using regular and multisite.
 
 = 0.31.0 (2012-09-25) =
 * Have breach notification emails detail the exact situation depending on

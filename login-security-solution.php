@@ -6,7 +6,7 @@
  * Description: Requires very strong passwords, repels brute force login attacks, prevents login information disclosures, expires idle sessions, notifies admins of attacks and breaches, permits administrators to disable logins for maintenance or emergency reasons and reset all passwords.
  *
  * Plugin URI: http://wordpress.org/extend/plugins/login-security-solution/
- * Version: 0.31.0
+ * Version: 0.32.0
  *         (Remember to change the VERSION constant, below, as well!)
  * Author: Daniel Convissor
  * Author URI: http://www.analysisandsolutions.com/
@@ -42,7 +42,7 @@ class login_security_solution {
 	/**
 	 * This plugin's version
 	 */
-	const VERSION = '0.31.0';
+	const VERSION = '0.32.0';
 
 	/**
 	 * This plugin's table name prefix
@@ -120,6 +120,7 @@ class login_security_solution {
 		'login_fail_tier_2' => 5,
 		'login_fail_tier_3' => 10,
 		'login_fail_notify' => 50,
+		'login_fail_notify_multiple' => 0,
 		'login_fail_breach_notify' => 6,
 		'login_fail_breach_pw_force_change' => 6,
 		'pw_change_days' => 0,
@@ -704,7 +705,8 @@ class login_security_solution {
 	}
 
 	/**
-	 * Removes the current user's last active time metadata
+	 * Examines if a successful login is coming from an attacker and takes
+	 * action if it is
 	 *
 	 * NOTE: This method is automatically called by WordPress when users
 	 * successfully log in.
@@ -1905,10 +1907,7 @@ Password MD5                 %5d     %s
 			$message .= __(" * Log into the site and change your password.", self::ID) . "\n";
 		}
 
-		$message .= sprintf(__(" * Send an email to %s letting them know it was not you who logged in.", self::ID), $this->get_admin_email()) . "\n\n";
-
-		// Translation already in WP (partial).
-		$message .= sprintf(__("If it WAS YOU, future hassles can be reduced by logging into the site, going to your profile page, and clicking the '%s' button.  The site will remember your IP address as being legitimate.", self::ID), __('Update Profile')) . "\n";
+		$message .= sprintf(__(" * Send an email to %s letting them know it was not you who logged in.", self::ID), $this->get_admin_email()) . "\n";
 
 		return wp_mail($to, $subject, $message);
 	}
@@ -1991,7 +1990,11 @@ Password MD5                 %5d     %s
 		if ($this->options['login_fail_notify']
 			&& ! ($fails['total'] % $this->options['login_fail_notify']))
 		{
-			$this->notify_fail($network_ip, $user_name, $pass_md5, $fails);
+			if ($fails['total'] == $this->options['login_fail_notify']
+				|| $this->options['login_fail_notify_multiple'])
+			{
+				$this->notify_fail($network_ip, $user_name, $pass_md5, $fails);
+			}
 		}
 
 		$sleep = $this->calculate_sleep($fails['total']);
