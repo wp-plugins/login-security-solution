@@ -6,7 +6,7 @@
  * Description: Requires very strong passwords, repels brute force login attacks, prevents login information disclosures, expires idle sessions, notifies admins of attacks and breaches, permits administrators to disable logins for maintenance or emergency reasons and reset all passwords.
  *
  * Plugin URI: http://wordpress.org/extend/plugins/login-security-solution/
- * Version: 0.32.0
+ * Version: 0.33.0
  *         (Remember to change the VERSION constant, below, as well!)
  * Author: Daniel Convissor
  * Author URI: http://www.analysisandsolutions.com/
@@ -42,7 +42,7 @@ class login_security_solution {
 	/**
 	 * This plugin's version
 	 */
-	const VERSION = '0.32.0';
+	const VERSION = '0.33.0';
 
 	/**
 	 * This plugin's table name prefix
@@ -1946,7 +1946,17 @@ Password MD5                 %5d     %s
 			. $this->get_notify_counts($network_ip, $user_name, $pass_md5, $fails)
 
 			. sprintf(__("The %s plugin (%s) for WordPress is repelling the attack by making their login failures take a very long time.", self::ID),
-				self::NAME, self::VERSION) . "\n";
+				self::NAME, self::VERSION);
+
+		if ($this->options['login_fail_breach_pw_force_change']) {
+			$message .= '  ' . __("This attacker will also be denied access in the event they stumble upon valid credentials.", self::ID);
+		}
+
+		$message .= "\n";
+
+		if (!$this->options['login_fail_notify_multiple']) {
+			$message .= "\n" . sprintf(__("Further notifications about this attacker will only be sent if the attack stops for at least %d minutes and then resumes.", self::ID), $this->options['login_fail_minutes']) . "\n";
+		}
 
 		return wp_mail($to, $subject, $message);
 	}
