@@ -466,8 +466,8 @@ msgstr ""
 
 #: login-security-solution.php:1863
 msgid ""
-"WARNING: The '%s' setting you chose means this person has NOT been logged "
-"out and will NOT be required to confirm their identity."
+"The user has been logged out and will be required to confirm their identity "
+"via the password reset functionality."
 msgstr ""
 
 #: login-security-solution.php:1865

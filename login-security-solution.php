@@ -6,7 +6,7 @@
  * Description: Requires very strong passwords, repels brute force login attacks, prevents login information disclosures, expires idle sessions, notifies admins of attacks and breaches, permits administrators to disable logins for maintenance or emergency reasons and reset all passwords.
  *
  * Plugin URI: http://wordpress.org/extend/plugins/login-security-solution/
- * Version: 0.33.0
+ * Version: 0.34.0
  *         (Remember to change the VERSION constant, below, as well!)
  * Author: Daniel Convissor
  * Author URI: http://www.analysisandsolutions.com/
@@ -42,7 +42,7 @@ class login_security_solution {
 	/**
 	 * This plugin's version
 	 */
-	const VERSION = '0.33.0';
+	const VERSION = '0.34.0';
 
 	/**
 	 * This plugin's table name prefix
@@ -501,7 +501,7 @@ class login_security_solution {
 	 *       and slow down the response as necessary
 	 */
 	public function login_errors($out = '') {
-		global $errors, $user_name;
+		global $errors, $wp_error, $user_name;
 
 		if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'register') {
 			// Do not alter "invalid_username" or "invalid_email" messages
@@ -509,7 +509,13 @@ class login_security_solution {
 			return $out;
 		}
 
-		$error_codes = $errors->get_error_codes();
+		if (is_wp_error($errors)) {
+			$error_codes = $errors->get_error_codes();
+		} elseif (is_wp_error($wp_error)) {
+			$error_codes = $wp_error->get_error_codes();
+		} else {
+			return $out;
+		}
 
 		$codes_to_cloak = array('incorrect_password', 'invalid_username');
 		if (array_intersect($error_codes, $codes_to_cloak)) {
@@ -1232,6 +1238,32 @@ Password MD5                 %5d     %s
 	}
 
 	/**
+	 * Determines if PHP's exec() function is usable
+	 * @return bool
+	 */
+	protected function is_exec_available() {
+		static $available;
+
+		if (!isset($available)) {
+			$available = true;
+			if (ini_get('safe_mode')) {
+				$available = false;
+			} else {
+				$d = ini_get('disable_functions');
+				$s = ini_get('suhosin.executor.func.blacklist');
+				if ("$d$s") {
+					$array = preg_split('/,\s*/', "$d,$s");
+					if (in_array('exec', $array)) {
+						$available = false;
+					}
+				}
+			}
+		}
+
+		return $available;
+	}
+
+	/**
 	 * Examines how long ago the current user last interacted with the
 	 * site and takes appropriate action
 	 *
@@ -1306,6 +1338,11 @@ Password MD5                 %5d     %s
 			return null;
 		}
 
+		if (!$this->is_exec_available()) {
+			$this->available_dict = false;
+			return null;
+		}
+
 		$term = escapeshellarg($pw);
 		exec("dict -m -s exact $term 2>&1", $output, $result);
 		if (!$result) {
@@ -1376,6 +1413,11 @@ Password MD5                 %5d     %s
 	 */
 	protected function is_pw_dictionary__grep($pw) {
 		if ($this->available_grep === false) {
+			return null;
+		}
+
+		if (!$this->is_exec_available()) {
+			$this->available_grep = false;
 			return null;
 		}
 
