@@ -3,7 +3,7 @@ Contributors: convissor
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=danielc%40analysisandsolutions%2ecom&lc=US&item_name=Donate%3a%20Login%20Security%20Solution&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: login, password, passwords, strength, strong, strong passwords, password strength, idle, timeout, maintenance, security, attack, hack, lock, lockdown, ban, brute force, brute, force, authentication, auth, cookie, users
 Requires at least: 3.3
-Tested up to: 3.5beta1
+Tested up to: 3.5.1
 Stable tag: trunk
 
 Security against brute force attacks by tracking IP, name, password; requiring very strong passwords. Idle timeout. Maintenance mode lockdown.
@@ -112,8 +112,26 @@ conflicts during program execution.  Please read the FAQ!
 
 = Translations =
 
-* Français, français (French, France) (fr_FR) by [mermouy](http://wordpress.org/support/profile/mermouy)
+* Français, français (French, France) (fr_FR) by [mermouy](http://wordpress.org/support/profile/mermouy) and and Fx Bénard
+* Deutsche, Deutschland (German, Germany) (de_DE) by Christian Foellmann
 * Português, Brasil (Portugese, Brazil) (pt_BR) by Valdir Trombini
+
+
+= Source Code, Bugs, and Feature Requests =
+
+Development of this plugin happens on
+[GitHub](https://github.com/convissor/login-security-solution).
+Please submit
+[bug and feature requests](https://github.com/convissor/login-security-solution/issues),
+[pull requests](https://github.com/convissor/login-security-solution/pulls),
+[wiki entries](https://github.com/convissor/login-security-solution/wiki)
+there.
+Releases are then squashed and pushed to WordPress'
+[Plugins SVN repository](http://plugins.svn.wordpress.org/login-security-solution/).
+This division is necessary due having being chastised that "the Plugins SVN
+repository is a release system, not a development system."
+
+Old tickets are in the [Plugins Trac](https://plugins.trac.wordpress.org/query?status=assigned&status=closed&status=new&status=reopened&component=login-security-solution&col=id&col=summary&col=status&col=owner&col=type&col=priority&col=component&desc=1&order=id).
 
 
 = Strong, Unique Passwords Are Important =
@@ -274,11 +292,21 @@ are not using the `InnoDB` storage engine.
     click the "Settings" link for this plugin.  In the "Deactivate" entry,
     click the "Yes, delete the damn data" button and save the form.
 
-1. Use WordPress' "Plugins" admin interface to and click the "Deactivate"
-    link.
+1. Use WordPress' "Plugins" admin interface to click the "Deactivate" link
 
-1. Remove the `login-security-solution` directory.
+1. Remove the `login-security-solution` directory from the server
 
+In the event you didn't pick the "Yes, delete the damn data" option or
+you manually deleted the plugin, you can get rid of the settings by running
+three queries.  These  queries are exapmles, using the default table name
+prefix of, `wp_`.  If you have changed your database prefix, adjust the
+queries accordingly.
+
+        DROP TABLE wp_login_security_solution_fail;
+
+        DELETE FROM wp_options WHERE option_name LIKE 'login-security-solution%';
+
+        DELETE FROM wp_usermeta WHERE meta_key LIKE 'login-security-solution%';
 
 == Frequently Asked Questions ==
 
@@ -412,9 +440,16 @@ and `.mo` files:
 
 == Changelog ==
 
+= 0.35.0 (2013-02-22) =
+* Don't track cookie failures if name or hash is empty.
+* Add German translation.
+* Update French translation.
+* Documentation improvements.
+
 = 0.34.0 (2012-10-21) =
 * Have `login_errors` filter check `$wp_error` also, not just `$errors.`
 * Skip `exec()` calls if `safe_mode` is on.
+* Unit tests pass using WordPress 3.5 RC2 under PHP 5.4.5-dev and 5.3.19-dev.
 
 = 0.33.0 (2012-10-18) =
 * Add text to failure alerts saying the attacker will be denied access.
@@ -423,7 +458,7 @@ and `.mo` files:
 = 0.32.0 (2012-10-04) =
 * SIGNIFICANT CHANGE:  Reduce the number of emails sent to administrators:
 add the "Multiple Failure Notifications" setting and make the default "No."
-* Remove the (supurfluous) "If it WAS YOU..." part of the user notification
+* Remove the (superfluous) "If it WAS YOU..." part of the user notification
 emails.
 * Use `wp_cache_flush()` in unit tests, `wp_cache_reset()` deprecated in 3.5.
 * Unit tests pass using PHP 5.4.5-dev, 5.3.16-dev.
@@ -680,20 +715,3 @@ problems under PHP 5.4.
 
 * Delete old data in the `fail` table.
 * Provide a user interface to the `fail` table.
-
-= Source Code, Bugs, and Feature Requests =
-
-Development of this plugin happens on
-[GitHub](https://github.com/convissor/login-security-solution).
-Releases are then squashed and pushed to WordPress'
-[Plugins SVN repository](http://plugins.svn.wordpress.org/login-security-solution/).
-This division is necessary due having being chastized that "the Plugins SVN
-repository is a release system, not a development system."
-
-Please submit
-[bug and feature requests](https://github.com/convissor/login-security-solution/issues),
-[pull requests](https://github.com/convissor/login-security-solution/pulls),
-[wiki entries](https://github.com/convissor/login-security-solution/wiki)
-there.
-
-Old tickets are in the [Plugins Trac](https://plugins.trac.wordpress.org/query?status=assigned&status=closed&status=new&status=reopened&component=login-security-solution&col=id&col=summary&col=status&col=owner&col=type&col=priority&col=component&desc=1&order=id).
