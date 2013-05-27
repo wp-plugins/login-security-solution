@@ -6,7 +6,7 @@
  * Description: Requires very strong passwords, repels brute force login attacks, prevents login information disclosures, expires idle sessions, notifies admins of attacks and breaches, permits administrators to disable logins for maintenance or emergency reasons and reset all passwords.
  *
  * Plugin URI: http://wordpress.org/extend/plugins/login-security-solution/
- * Version: 0.37.0
+ * Version: 0.38.0
  *         (Remember to change the VERSION constant, below, as well!)
  * Author: Daniel Convissor
  * Author URI: http://www.analysisandsolutions.com/
@@ -42,7 +42,7 @@ class login_security_solution {
 	/**
 	 * This plugin's version
 	 */
-	const VERSION = '0.37.0';
+	const VERSION = '0.38.0';
 
 	/**
 	 * This plugin's table name prefix
@@ -864,6 +864,9 @@ class login_security_solution {
 		}
 		if ($this->user_pass === null) {
 			###$this->log(__FUNCTION__, "authenticate filter not called");
+			###global $wp_filter;
+			###$this->log(__FUNCTION__, 'authenticate filters', $wp_filter['authenticate']);
+			###$this->log(__FUNCTION__, 'backtrace', debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS));
 			die(self::NAME . ": authenticate filter not called");
 		}
 		###$this->log(__FUNCTION__, $user_name);
@@ -1021,6 +1024,14 @@ class login_security_solution {
 			$email = get_site_option('admin_email');
 		}
 		return $email;
+	}
+
+	/**
+	 * Removes HTML special characters from blogname
+	 * @return string
+	 */
+	protected function get_blogname() {
+		return wp_specialchars_decode(get_option('blogname'), ENT_QUOTES);
 	}
 
 	/**
@@ -1580,7 +1591,7 @@ Password MD5                 %5d     %s
 	 */
 	protected function is_pw_like_bloginfo($pw) {
 		// Note: avoiding get_bloginfo() because it's very expensive.
-		if ($this->has_match($pw, get_option('blogname'))) {
+		if ($this->has_match($pw, $this->get_blogname())) {
 			return true;
 		}
 		if ($this->has_match($pw, get_option('siteurl'))) {
@@ -2041,7 +2052,7 @@ Password MD5                 %5d     %s
 
 		$to = $this->sanitize_whitespace($this->get_admin_email());
 
-		$blog = get_option('blogname');
+		$blog = $this->get_blogname();
 		$subject = sprintf(__("POTENTIAL INTRUSION AT %s", self::ID), $blog);
 		$subject = $this->sanitize_whitespace($subject);
 
@@ -2084,7 +2095,7 @@ Password MD5                 %5d     %s
 
 		$to = $this->sanitize_whitespace($user->user_email);
 
-		$blog = get_option('blogname');
+		$blog = $this->get_blogname();
 		$subject = sprintf(__("VERIFY YOU LOGGED IN TO %s", self::ID), $blog);
 		$subject = $this->sanitize_whitespace($subject);
 
@@ -2127,7 +2138,7 @@ Password MD5                 %5d     %s
 
 		$to = $this->sanitize_whitespace($this->get_admin_email());
 
-		$blog = get_option('blogname');
+		$blog = $this->get_blogname();
 		$subject = sprintf(__("ATTACK HAPPENING TO %s", self::ID), $blog);
 		$subject = $this->sanitize_whitespace($subject);
 
