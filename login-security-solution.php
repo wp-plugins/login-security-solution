@@ -6,7 +6,7 @@
  * Description: Requires very strong passwords, repels brute force login attacks, prevents login information disclosures, expires idle sessions, notifies admins of attacks and breaches, permits administrators to disable logins for maintenance or emergency reasons and reset all passwords.
  *
  * Plugin URI: http://wordpress.org/extend/plugins/login-security-solution/
- * Version: 0.40.0
+ * Version: 0.41.0
  *         (Remember to change the VERSION constant, below, as well!)
  * Author: Daniel Convissor
  * Author URI: http://www.analysisandsolutions.com/
@@ -42,7 +42,7 @@ class login_security_solution {
 	/**
 	 * This plugin's version
 	 */
-	const VERSION = '0.40.0';
+	const VERSION = '0.41.0';
 
 	/**
 	 * This plugin's table name prefix
@@ -869,6 +869,10 @@ class login_security_solution {
 			###$this->log(__FUNCTION__, "$user_name skip login failed");
 			$this->skip_wp_login_failed = false;
 			return -1;
+		}
+		if (!$user_name) {
+			###$this->log(__FUNCTION__, "empty user_name");
+			return -2;
 		}
 		if ($this->user_pass === null) {
 			###$this->log(__FUNCTION__, "authenticate filter not called");
