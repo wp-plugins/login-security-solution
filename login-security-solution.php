@@ -6,7 +6,7 @@
  * Description: Requires very strong passwords, repels brute force login attacks, prevents login information disclosures, expires idle sessions, notifies admins of attacks and breaches, permits administrators to disable logins for maintenance or emergency reasons and reset all passwords.
  *
  * Plugin URI: http://wordpress.org/extend/plugins/login-security-solution/
- * Version: 0.43.0
+ * Version: 0.44.0
  *         (Remember to change the VERSION constant, below, as well!)
  * Author: Daniel Convissor
  * Author URI: http://www.analysisandsolutions.com/
@@ -26,7 +26,7 @@ $GLOBALS['login_security_solution'] = new login_security_solution;
  * @link http://wordpress.org/extend/plugins/login-security-solution/
  * @license http://www.gnu.org/licenses/gpl-2.0.html GPLv2
  * @author Daniel Convissor <danielc@analysisandsolutions.com>
- * @copyright The Analysis and Solutions Company, 2012
+ * @copyright The Analysis and Solutions Company, 2012-2014
  */
 class login_security_solution {
 	/**
@@ -42,7 +42,7 @@ class login_security_solution {
 	/**
 	 * This plugin's version
 	 */
-	const VERSION = '0.43.0';
+	const VERSION = '0.44.0';
 
 	/**
 	 * This plugin's table name prefix
@@ -460,7 +460,7 @@ class login_security_solution {
 			return $user;
 		}
 
-		$process = $this->process_login_success($user);
+		$this->process_login_success($user);
 
 		if ($this->check(null, $user) !== true) {
 			###$this->log(__FUNCTION__, "$user_name check failed");
@@ -941,7 +941,11 @@ class login_security_solution {
 
 		if (!defined('LOGIN_SECURITY_SOLUTION_TESTING')) {
 			// Keep login failures from becoming denial of service attacks.
-			mysql_close($wpdb->dbh);
+			if (empty($wpdb->use_mysqli)) {
+				mysql_close($wpdb->dbh);
+			} else {
+				mysqli_close($wpdb->dbh);
+			}
 
 			sleep($this->sleep);
 
@@ -1088,6 +1092,16 @@ class login_security_solution {
 	 */
 	protected function get_login_fail($network_ip, $user_name, $pass_md5) {
 		global $wpdb;
+
+		if (!$this->options['login_fail_minutes']) {
+			###$this->log(__FUNCTION__, 'Login failure tracking disabled');
+			return array(
+				'total' => '0',
+				'network_ip' => null,
+				'user_name' => null,
+				'pass_md5' => null,
+			);
+		}
 
 		$wpdb->escape_by_ref($user_name);
 		$wpdb->escape_by_ref($pass_md5);
@@ -1465,6 +1479,11 @@ Password MD5                 %5d     %s
 	 */
 	protected function is_login_fail_exact_match($ip, $user_name, $pass_md5) {
 		global $wpdb;
+
+		if (!$this->options['login_fail_minutes']) {
+			###$this->log(__FUNCTION__, 'Login failure tracking disabled');
+			return false;
+		}
 
 		$wpdb->escape_by_ref($ip);
 		$wpdb->escape_by_ref($user_name);
@@ -1878,8 +1897,8 @@ Password MD5                 %5d     %s
 	 * @param array $data  the data, if any
 	 * @return void
 	 */
-	public function log($function, $msg, $data = array()) {
-		if ($data) {
+	public function log($function, $msg, $data = 'please allow logging empty stuff') {
+		if ($data != 'please allow logging empty stuff') {
 			$msg .= ": " . json_encode($data);
 		}
 		file_put_contents('/var/log/' . self::ID . '.log',
