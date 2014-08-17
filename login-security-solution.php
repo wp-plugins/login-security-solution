@@ -6,7 +6,7 @@
  * Description: Requires very strong passwords, repels brute force login attacks, prevents login information disclosures, expires idle sessions, notifies admins of attacks and breaches, permits administrators to disable logins for maintenance or emergency reasons and reset all passwords.
  *
  * Plugin URI: http://wordpress.org/extend/plugins/login-security-solution/
- * Version: 0.44.0
+ * Version: 0.45.0
  *         (Remember to change the VERSION constant, below, as well!)
  * Author: Daniel Convissor
  * Author URI: http://www.analysisandsolutions.com/
@@ -42,7 +42,7 @@ class login_security_solution {
 	/**
 	 * This plugin's version
 	 */
-	const VERSION = '0.44.0';
+	const VERSION = '0.45.0';
 
 	/**
 	 * This plugin's table name prefix
@@ -2456,8 +2456,11 @@ Password MD5                 %5d     %s
 		$uri .= 'action=' . urlencode($action);
 
 		if ($action == 'rp') {
-			$uri .= '&key=' . urlencode(@$_GET['key']);
-			$uri .= '&login=' . urlencode(@$_GET['login']);
+			if (empty($_COOKIE['wp-resetpass-' . COOKIEHASH])) {
+				// Cookie not set.  Site on WP < 3.9.2.  Do it the old way.
+				$uri .= '&key=' . urlencode(@$_GET['key']);
+				$uri .= '&login=' . urlencode(@$_GET['login']);
+			}
 		}
 
 		if ($login_msg_id) {
