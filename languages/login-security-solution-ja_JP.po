@@ -1,17 +1,21 @@
+# Copyright (C) 2014 Login Security Solution
+# This file is distributed under the same license as the Login Security Solution package.
+# Special thanks for Japanese Translation: motoyamayuki (https://profiles.wordpress.org/motoyamayuki/) and dote1027 (https://profiles.wordpress.org/dote1027/).
 msgid ""
 msgstr ""
 "Project-Id-Version: Login Security Solution 0.47.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/login-security-"
 "solution\n"
 "POT-Creation-Date: 2014-10-10 01:25:31+00:00\n"
-"PO-Revision-Date: 2014-01-16 02:27:32+00:00\n"
-"Last-Translator: Daniel Convissor <danielc@analysisandsolutions.com>\n"
-"Language-Team: Friso van Wieringen\n"
-"Language: \n"
+"PO-Revision-Date: 2014-06-08 16:09+0900\n"
+"Last-Translator: Kimiya Kitani (kimipooh@gmail.com)\n"
+"Language-Team: WordBench Kyoto\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Poedit 1.6.5\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 # Translation from WordPress.
 #: admin.php:112 admin.php:392
@@ -20,112 +24,104 @@ msgstr ""
 
 #: admin.php:126
 msgid "Change All Passwords"
-msgstr "Verander alle wachtwoorden"
+msgstr "すべてのパスワードを変更します"
 
 #: admin.php:127
 msgid "Do not remind me about this"
-msgstr "Herinner mij hier niet aan"
+msgstr "はい、これについて通知しません"
 
 #: admin.php:128
 msgid "Require All Passwords Be Changed"
-msgstr "Vereis dat alle wachtwoorden worden gewijzigd"
+msgstr "はい、パスワード変更を要求します"
 
 #: admin.php:143
 msgid ""
 "%s must be activated via the Network Admin interface when WordPress is in "
 "multistie network mode."
 msgstr ""
-"%s moet worden geactiveerd via de Netwerk Admin interface wanneer WordPress "
-"in multisite netwerk modus is."
+"WordPressがマルチサイトネットワークモードの場合、%s はネットワーク管理インタ"
+"フェースを経由して有効化しなければなりません。"
 
 #: admin.php:251
 msgid "Idle Timeout"
-msgstr "Timeout vanwege inactiviteit"
+msgstr "タイムアウト時間"
 
 #: admin.php:252
 msgid ""
 "Close inactive sessions after this many minutes. 0 disables this feature."
-msgstr ""
-"Sluit niet actieve sessies na dit aantal minuten. 0 schakelt deze optie uit."
+msgstr "分間、使われていなかったセッションは終了します。"
 
 #: admin.php:257
 msgid "Maintenance Mode"
-msgstr "Onderhoudsmodus"
+msgstr "メンテナンスモード"
 
 #: admin.php:258
 msgid ""
 "Disable logins from users who are not administrators and disable posting of "
 "comments?"
 msgstr ""
-"Schakel het inloggen door gebruikers uit die geen beheerders zijn en schakel "
-"het posten van berichten of commentaren uit?"
+"管理者でないユーザーからのログインを無効にし、コメント投稿を無効にしますか。"
 
 #: admin.php:260
 msgid "Off, let all users log in."
-msgstr "Uit, laat alle gebruikers inloggen."
+msgstr "いいえ、すべてのユーザーがログインできるようにしてください。"
 
 #: admin.php:261
 msgid "On, disable comments and only let administrators log in."
-msgstr "Aan, schakel commentaren uit en laat alleen beheerders inloggen."
+msgstr "はい、コメントを無効にし、管理者のみログインできるようにしてください。"
 
 #: admin.php:265
 msgid "Deactivation"
-msgstr "Deactiveren"
+msgstr "無効化"
 
 #: admin.php:266
 msgid ""
 "Should deactivating the plugin remove all of the plugin's data and settings?"
-msgstr ""
-"Moeten alle bij de plugin horende data en instellingen worden verwijderd "
-"wanneer de plugin wordt gedeactiveerd?"
+msgstr "プラグインを無効にする時、プラグインの全データと設定を削除しますか。"
 
 #: admin.php:268
 msgid "No, preserve the data for future use."
-msgstr "Nee, behoud de data voor toekomstig gebruik."
+msgstr "いいえ、後で使うことができるように残しておいてください。"
 
 #: admin.php:269
 msgid "Yes, delete the damn data."
-msgstr "Ja, verwijder de data."
+msgstr "はい、すべてのデータを削除してください。"
 
 #: admin.php:274
 msgid "Match Time"
-msgstr "Gerelateerde pogingen"
+msgstr "記録時間"
 
-# TODO: translate the "0 disables..." sentence.
 #: admin.php:275
 msgid ""
 "How far back, in minutes, should login failures look for matching data? 0 "
 "disables Login Failure slow downs, notifications and breach confirmations."
 msgstr ""
-"Hoe ver terug (in minuten) moet de plugin zoeken naar gerelateerde "
-"inlogpogingen? 0 disables Login Failure slow downs, notifications and breach "
-"confirmations."
+"分前まで、失敗したログインデータを遡ってチェックしますか。0 はログイン失敗の"
+"遅延処理、通知、違反確認を無効にします。"
 
 #: admin.php:280
 msgid "Delay Tier 2"
-msgstr "Vertragingslaag 2"
+msgstr "遅延レベル２"
 
 #: admin.php:281
 msgid ""
 "How many matching login failures should it take to get into this (%d - %d "
 "second) Delay Tier? Must be >= %d."
 msgstr ""
-"Hoe veel foutieve gerelateerde inlogpogingen moeten er worden gedaan om in "
-"deze (%d - %d seconden) vertragingslaag te komen? Dit moet groter zijn dan "
-"%d."
+"回、ログインに失敗した場合、この遅延レベル（%d - %d 秒）を適応します。%d 以上"
+"の指定が必要です。"
 
 #: admin.php:287
 msgid "Delay Tier 3"
-msgstr "Vertragingslaag 3"
+msgstr "遅延レベル３"
 
 #: admin.php:288
 msgid ""
 "How many matching login failures should it take to get into this (%d - %d "
 "second) Delay Tier? Must be > Delay Tier 2."
 msgstr ""
-"Hoe veel foutieve gerelateerde inlogpogingen moeten er worden gedaan om in "
-"deze (%d - %d seconden) vertragingslaag te komen? Dit moet groter zijn dan "
-"vertragingslaag 2."
+"回、ログインに失敗した場合、この遅延レベル（%d - %d 秒）を適応します。遅延レ"
+"ベル２を超える指定が必要です。"
 
 #: admin.php:293
 msgid "DoS Tier"
@@ -140,7 +136,7 @@ msgstr ""
 
 #: admin.php:299
 msgid "Notifications To"
-msgstr "Meldingen naar"
+msgstr "通知先"
 
 #: admin.php:300
 msgid ""
@@ -148,58 +144,55 @@ msgid ""
 "to. For multiple addresses, separate them with commas. WordPress' "
 "'admin_email' setting is used if none is provided here."
 msgstr ""
-"De e-mail adres(sen) waarnaar de meldingen gestuurd moeten worden. Scheid "
-"meerdere adressen met een komma. De 'admin_email' instelling van WordPress "
-"wordt gebruikt als dit veld leeg is."
+"このメールアドレスへ、失敗や違反通知を送ります。複数のメールアドレスを使いた"
+"い場合には、コンマ区切りで入力してください。もしこの欄が空欄であれば、"
+"WordPressの「admin_email」に指定しているメールアドレスが使われます。"
 
 #: admin.php:305
 msgid "Failure Notification"
-msgstr "Melding van foutieve inlogpogingen"
+msgstr "失敗の通知"
 
 #: admin.php:306
 msgid ""
 "Notify the administrator after x matching login failures. 0 disables this "
 "feature."
 msgstr ""
-"Stuur de beheerder een bericht na x gerelateerde inlogpogingen. 0 schakelt "
-"deze optie uit."
+"回、ログインに失敗した場合、管理者へ通知されます。0を指定することで、本機能は"
+"無効になります。"
 
 #: admin.php:311
 msgid "Multiple Failure Notifications"
-msgstr "Melding van veelvuldige foutieve inlogpogingen"
+msgstr "失敗の複数通知"
 
 #: admin.php:312
 msgid "Should multiple failure notifications be sent to the administrators?"
-msgstr ""
-"Moeten er meerdere meldingen van foutieve inlogpogingen naar de beheerder "
-"worden gestuurd?"
+msgstr "ログインの失敗を複数回管理者へ通知すべきですか。"
 
 #: admin.php:314
 msgid ""
 "No, just notify them the first time that x matching login failures happen."
 msgstr ""
-"Nee, stuur alleen een melding wanneer bij de eerste x gerelateerde "
-"inlogpogingen."
+"いいえ、指定した失敗の通知回数に到達した最初の１度のみ通知してください。"
 
 #: admin.php:315
 msgid "Yes, notify them upon every x matching login failures."
-msgstr "Ja, stuur een bericht na iedere x gerelateerde inlogpogingen."
+msgstr "はい、指定した失敗の通知回数に到達する度に、毎回通知してください。"
 
 #: admin.php:319
 msgid "Breach Notification"
-msgstr "Melding van succesvolle inbraak"
+msgstr "違反通知"
 
 #: admin.php:320
 msgid ""
 "Notify the administrator if a successful login uses data matching x login "
 "failures. 0 disables this feature."
 msgstr ""
-"Stuur de beheerder een bericht wanneer er succesvol wordt ingelogd door "
-"iemand met x gerelateerde inlogpogingen. 0 schakelt deze optie uit."
+"ログインに成功したユーザーが指定回数ログインに失敗していた場合、管理者に通知"
+"します。0を指定することで、本機能は無効になります。"
 
 #: admin.php:325 login-security-solution.php:2192
 msgid "Breach Email Confirm"
-msgstr "E-mailbevestiging van succesvolle inbraak"
+msgstr "Email形式の確認"
 
 #: admin.php:326
 msgid ""
@@ -207,65 +200,63 @@ msgid ""
 "the user out and require them to use WordPress' lost password process. 0 "
 "disables this feature."
 msgstr ""
-"Wanneer er succesvol wordt ingelogd door iemand met x gerelateerde "
-"inlogpogingen, log dan de gebruiker uit en dwing af dat de 'verloren "
-"wachtwoord' procedure wordt gevolgd. 0 schakelt deze optie uit."
+"ログインに成功したユーザーが指定された回数ログインに失敗していた場合、すぐに"
+"そのユーザーをログアウトし、WordPressのパスワードを忘れた場合の処理を利用する"
+"ことを要求します。"
 
 #: admin.php:332
 msgid "Length"
-msgstr "Lengte"
+msgstr "パスワードの長さ"
 
 #: admin.php:333
 msgid "How long must passwords be? Must be >= %d."
-msgstr "Hoe lang moeten wachtwoorden zijn? Moet groter zijn dan %d."
+msgstr "パスワードの長さはどうしますか。%d 以上の指定が必要です。"
 
 #: admin.php:339
 msgid "Complexity Exemption"
-msgstr "Complexiteitsuitzondering"
+msgstr "パスワードの複雑さ"
 
 #: admin.php:340
 msgid ""
 "How long must passwords be to be exempt from the complexity requirements? "
 "Must be >= %d."
-msgstr ""
-"Hoe lang moeten wachtwoorden zijn om uitgezonderd te worden van de "
-"complexiteitseisen? Moet groter zijn dan %d."
+msgstr "パスワードにどの程度の複雑さを要求しますか。%d 以上の指定が必要です。"
 
 #: admin.php:346
 msgid "Aging"
-msgstr "Veroudering"
+msgstr "パスワードの再利用禁止期間"
 
 #: admin.php:347
 msgid ""
 "How many days old can a password be before requiring it be changed? Not "
 "recommended. 0 disables this feature."
 msgstr ""
-"Hoe oud mag een wachtwoord zijn voordat dit moet worden veranderd? Niet "
-"aanbevolen. 0 schakelt deze optie uit."
+"一度利用したパスワードを再利用できるようにするまでの日数を指定して下さい。0を"
+"指定することで、いつでも一度利用したパスワードを再利用できます。"
 
 #: admin.php:352
 msgid "Grace Period"
-msgstr "Wijzigingsperiode"
+msgstr "パスワード変更の猶予期間"
 
 #: admin.php:353
 msgid ""
 "How many minutes should a user have to change their password once they know "
 "it has expired? Must be >= %d."
 msgstr ""
-"Hoeveel minuten heeft een gebruiker de tijd om het wachtwoord te veranderen "
-"nadat hij/zij weet dat het is verlopen? Moet groter zijn dan %d."
+"パスワードの有効期間が過ぎたことに気づいた後、パスワード変更をするための猶予"
+"期間は何分としますか。%d 以上の指定が必要です。"
 
 #: admin.php:359
 msgid "History"
-msgstr "Geschiedenis"
+msgstr "履歴"
 
 #: admin.php:360
 msgid ""
 "How many passwords should be remembered? Prevents reuse of old passwords. 0 "
 "disables this feature."
 msgstr ""
-"Hoeveel wachtwoorden moeten worden onthouden? Dit voorkomt hergebruik van "
-"oude wachtwoorden. 0 schakelt deze optie uit."
+"パスワードをどのぐらい記録しますか。記録したパスワードは、再利用できません。0"
+"を指定することで、本機能は無効になります。"
 
 #: admin.php:366
 msgid "Deletion Interval"
@@ -287,7 +278,7 @@ msgstr ""
 
 #: admin.php:435
 msgid "Login Failure Policies"
-msgstr "Beleid voor foutieve inlogpogingen"
+msgstr "ログイン失敗時のポリシー"
 
 #: admin.php:441
 msgid "Data Retention Policies"
@@ -295,58 +286,56 @@ msgstr ""
 
 #: admin.php:447
 msgid "Password Policies"
-msgstr "Wachtwoordbeleid"
+msgstr "パスワードポリシー"
 
 #: admin.php:453
 msgid "Miscellaneous Policies"
-msgstr "Diversen"
+msgstr "その他のポリシー"
 
 #: admin.php:504
 msgid ""
 "This plugin stores the IP address, username and password for each failed log "
 "in attempt."
 msgstr ""
-"Deze plugin bewaart het IP-adres, gebruikersnaam en wachtwoord van iedere "
-"foutieve inlogpoging."
+"このプラグインは、ログイン試行失敗の情報（IPアドレス、ユーザー名、パスワー"
+"ド）を保存します。"
 
 #: admin.php:506
 msgid ""
 "The data from future login failures are compared against the historical data."
-msgstr ""
-"De gegevens van toekomstige inlogpogingen worden vergeleken met opgeslagen "
-"gegevens."
+msgstr "その後、ログイン失敗のデータは、過去のデータと比較されます。"
 
 #: admin.php:508
 msgid ""
 "If any of the data points match, the plugin delays printing out the failure "
 "message."
 msgstr ""
-"Als minimaal één van deze gegevens overeenkomt zal de plugin een vertraging "
-"veroorzaken bij het tonen van het bericht aan de gebruiker."
+"もし比較データと一致した場合、プラグインは失敗したメッセージの表示を遅延しま"
+"す。"
 
 #: admin.php:510
 msgid ""
 "The goal is for the responses to take so long that the attackers give up and "
 "go find an easier target."
 msgstr ""
-"Het doel is om deze vertragingen zo lang te laten duren dat de aanvaller "
-"opgeeft en op zoek gaat naar een makkelijker doelwit."
+"目標は、攻撃者があきらめるような長い応答をし、攻撃者がもっと容易な攻撃対象を"
+"探しに行くことです。"
 
 #: admin.php:512
 msgid "The length of the delay is broken up into three tiers."
-msgstr "De lengte van de vertraging is verdeeld in drie lagen."
+msgstr "遅延の長さは、３つのレベルを用意しています。"
 
 #: admin.php:514
 msgid "The amount of the delay increases in higher tiers."
-msgstr "De lengte van de vertraging loopt op in de hogere lagen."
+msgstr "遅延は、より高いレベルでより長くなります。"
 
 #: admin.php:516
 msgid ""
 "The delay time within each tier is randomized to complicate profiling by "
 "attackers."
 msgstr ""
-"De vertragingstijd in iedere laag is willekeurig (binnen bandbreedte) om "
-"profiling door aanvallers te bemoeilijken."
+"各レベル内の遅延時間は、攻撃者による分析を難しくするために無作為に決定しま"
+"す。"
 
 #: admin.php:526
 msgid "The means for automatically deleting old records from the %s table."
@@ -354,79 +343,78 @@ msgstr ""
 
 #: admin.php:585 admin.php:600
 msgid "Default:"
-msgstr "Standaard:"
+msgstr "デフォルト:"
 
 #: admin.php:624
 msgid "must be >= '%s',"
-msgstr "moet groter zijn dan '%s',"
+msgstr "'%s' 以上でなければなりません。"
 
 #: admin.php:625
 msgid "so we used the default value instead."
-msgstr "dus hebben we de standaardwaarde gebruikt."
+msgstr "代わりにデフォルトの値が使用されました。"
 
 #: admin.php:658
 msgid "must be an integer,"
-msgstr "moet een heel getal (integer) zijn,"
+msgstr "数値を使わなければなりません。"
 
 #: admin.php:778
 msgid "There may be cases where everyone's password should be reset."
 msgstr ""
-"Er zijn diverse scenario's waardoor de wachtwoorden van alle gebruikers "
-"zouden moeten worden gereset."
+"場合によっては、すべてのユーザーのパスワードをリセットする必要があります。"
 
 #: admin.php:780
 msgid "This page, provided by the %s plugin, offers that functionality."
-msgstr "Deze pagina, onderdeel van de %s plugin, biedt deze mogelijkheid."
+msgstr "このページでは、その機能を提供します。"
 
 #: admin.php:784
 msgid ""
 "Submitting this form sets a flag that forces all users, except yourself, to "
 "utilize WordPress' built in password reset functionality."
 msgstr ""
-"Door dit formulier in te sturen zullen alle gebruikers, behalve jezelf, hun "
-"wachtwoord moeten veranderen d.m.v. Wordpress' ingebouwde wachtwoord reset "
-"funtionaliteit."
+"WordPress標準のパスワードリセット機能を利用して、あなた以外のすべてのユーザー"
+"にパスワード変更を強制するフラグをこのフォームにセットしてください。"
 
 #: admin.php:786
 msgid ""
 "Users who are presently logged in will be logged out the next time they view "
 "a page that requires authentication."
 msgstr ""
-"Gebruikers die op dit moment zijn ingelogd zullen automatisch worden "
-"uitgelogd op het moment dat zij een pagina openen waarvoor authenticatie "
-"nodig is."
+"現在ログインしているユーザーは、次回認証を要求するページを表示する際にログア"
+"ウトします。"
 
 #: admin.php:798
 msgid ""
 "Confirm that you want to force all users to change their passwords by "
 "checking this box, then click the button, below."
 msgstr ""
-"Bevestig dat je wilt dat alle gebruikers worden gedwongen hun wachtwoord te "
-"veranderen door deze optie aan te vinken en druk op de onderstaande knop."
+"すべてのユーザーにパスワード変更を強制させたい場合は、このチェックボックスを"
+"有効にして下のボタンをクリックしてください。"
 
 #: admin.php:817
 msgid "No thanks. I know what I'm doing. Please don't remind me about this."
-msgstr "Nee bedankt. Ik weet wat ik doe. Herinner mij niet opnieuw hieraan."
+msgstr ""
+"これについて分かっているので通知してほしくない場合には、このチェックボックス"
+"を有効にして下のボタンをクリックしてください。"
 
 #: admin.php:849
 msgid ""
 "You have checked a box that does not correspond with the button you pressed. "
 "Please check and press buttons inside the same section."
 msgstr ""
-"Je hebt een keuze aangevinkt die niet overeenstemt met de knop die je hebt "
-"ingedrukt. Selecteer een optie en druk op een knop binnen dezelfde sectie."
+"押したボタンと一致しないボックスをチェックしました。同一項目内のボタンを"
+"チェックしてください。"
 
 #: admin.php:851
 msgid ""
 "Please confirm that you really want to do this. Put a check in the '%s' box "
 "before hitting the submit button."
 msgstr ""
-"Bevestig a.u.b. dat je dit echt wilt. Vink de optie in de '%s' box aan "
-"voordat je op de knop drukt."
+"本当にこれをしたいのかどうか確認してください。Submitボタンを押す前に、%s ボッ"
+"クスにチェックを入れて下さい。"
 
 #: admin.php:862
 msgid "No thanks"
-msgstr "Nee bedankt"
+msgstr "いいえ"
 
 # Translation from WordPress.
 #: admin.php:867 admin.php:887
@@ -435,34 +423,34 @@ msgstr ""
 
 #: admin.php:880
 msgid "Confirm"
-msgstr "Bevestig"
+msgstr "確認"
 
 #: admin.php:921
 msgid "an administrator"
-msgstr "een beheerder"
+msgstr "管理者"
 
 #: admin.php:932
 msgid ""
 "NOTICE: you turned on Maintenance Mode at some point. It disables new "
 "comments and keeps non-administrators from logging in."
 msgstr ""
-"LET OP: je hebt de Onderhoudsmodus aangezet. Dit voorkomt nieuwe commentaren "
-"en zorgt ervoor dat niet-beheerders niet kunnen inloggen."
+"通知：あなたは、メンテナンスモードを有効にしました。メンテナンスモードは、新"
+"しいコメントを無効し管理者以外のログインができなくなります。"
 
 #: admin.php:934
 msgid ""
 "WARNING: the site in Maintenance Mode. Talk to %s before making any changes."
 msgstr ""
-"WAARSCHUWING: de site is in Onderhoudsmodus. Neem contact op met %s voordat "
-"je wijzigingen doorvoert."
+"警告：このサイトはメンテナンスモード中です。変更をするまえに、%s へ相談してく"
+"ださい。"
 
 #: admin.php:940
 msgid ""
 "To turn this off, go to Settings | Login Security Solution | Maintenance "
 "Mode."
 msgstr ""
-"Om dit uit te schakelen, ga naar Instellingen | Login Security Solution | "
-"Onderhoudsmodus."
+"これをOffにするために、設定へ移動 | Login Security Solution | メンテナンス"
+"モード"
 
 #: admin.php:965
 msgid ""
@@ -471,27 +459,27 @@ msgid ""
 "protect your site from brute force attacks. Please improve security for "
 "everyone on the Internet by making all users pick new, strong, passwords."
 msgstr ""
-"Je hebt je gebruikers nog niet gevraagd hun wachtwoord te wijzigen sinds de "
-"plugin is geactiveerd. De meeste gebruikers hebben zwakke wachtwoorden. Het "
-"wachtwoordbeleid van deze plugin beschermt je site tegen brute force "
-"aanvallen. Verbeter de beveiliging voor iedereen op het Internet door alle "
-"gebruikers nieuwe, sterke wachtwoorden te laten nemen."
+"プラグインが有効化された以降、ユーザーへパスワード変更を要求していません。"
+"従って、ほとんどのユーザーはパスワード脆弱性を持っている可能性があります。こ"
+"のプラグインのパスワードポリシーは、総当り（ブルートフォース）攻撃を防ぎま"
+"す。どうか、すべてのユーザーが新しく、強力なパスワードを使うことっで、イン"
+"ターネットユーザーのためにセキュリティを強化してください。"
 
 #: admin.php:969
 msgid ""
 "Speaking of which, do YOU have a strong password? Make sure by changing "
 "yours too."
 msgstr ""
-"En by the way... heb JIJ eigenlijk een sterk wachtwoord? Zorg ervoor dat je "
-"je eigen wachtwoord ook verandert."
+"あなたは強力なパスワードを持っていると言えますか。パスワードを変更することで"
+"確かめてください。"
 
 #: admin.php:973
 msgid ""
 "The following link leads to a user interface where you can either require "
 "all passwords to be reset or disable this notice."
 msgstr ""
-"De volgende link brengt je naar een scherm waarin je alle gebruikers een "
-"nieuw wachtwoord kan laten kiezen of deze melding uit kunt schakelen."
+"下記のリンクは、すべてのパスワードをリセットする要求をする、あるいはこの通知"
+"を無効にする設定へ誘導します。"
 
 # Translation from WordPress.
 #: admin.php:1003
@@ -501,12 +489,12 @@ msgstr ""
 #: admin.php:1009
 msgid "$user_ID variable not set. Another plugin is misbehaving."
 msgstr ""
-"$user_ID variabele is niet ingesteld. Een andere plugin misdraagt zich."
+"$user_ID の変数がセットされていません。他のプラグインに異常が発生しています。"
 
 #: login-security-solution.php:648 tests/LoginErrorsTest.php:97
 #: tests/LoginErrorsTest.php:111
 msgid "Invalid username or password."
-msgstr "Ongeldige gebruikersnaam of wachtwoord."
+msgstr "ユーザー名またはパスワードが間違っています。"
 
 # Translation from WordPress.
 #: login-security-solution.php:655 tests/LoginErrorsTest.php:125
@@ -516,45 +504,46 @@ msgstr ""
 
 #: login-security-solution.php:681 tests/LoginMessageTest.php:66
 msgid "It has been over %d minutes since your last action."
-msgstr "Je vorige actie is %d minuten geleden."
+msgstr "最後の操作から%d 分が過ぎました。"
 
 #: login-security-solution.php:682 tests/LoginMessageTest.php:67
 msgid "Please log back in."
-msgstr "Log a.u.b. opnieuw in."
+msgstr "ログインし直してください。"
 
 #: login-security-solution.php:685 tests/LoginMessageTest.php:77
 msgid "The grace period for changing your password has expired."
-msgstr "De periode voor het wijzigen van je wachtwoord is verlopen."
+msgstr "パスワードを変更するための猶予期間が過ぎました。"
 
 #: login-security-solution.php:686 tests/LoginMessageTest.php:78
 msgid "Please submit this form to reset your password."
-msgstr "Stuur dit formulier in om je wachtwoord opnieuw in te stellen."
+msgstr "パスワードリセットするために、このフォームに申請してください。"
 
 #: login-security-solution.php:689 tests/LoginMessageTest.php:88
 msgid "Your password must be reset."
-msgstr "Je wachtwoord moet opnieuw worden ingesteld."
+msgstr "あなたのパスワードは、リセットされました。"
 
 #: login-security-solution.php:690 tests/LoginMessageTest.php:89
 msgid "Please submit this form to reset it."
-msgstr "Stuur dit formulier in om het opnieuw in te stellen."
+msgstr "パスワードリセットするために、このフォームに申請してください。"
 
 #: login-security-solution.php:693 tests/LoginMessageTest.php:104
 msgid "Your password has expired. Please log and change it."
-msgstr "Je wachtwoord is verlopen. Log in om het te veranderen."
+msgstr ""
+"あなたのパスワードが失効しました。ログインして、パスワード変更してください。"
 
 #: login-security-solution.php:694 tests/LoginMessageTest.php:105
 msgid "We provide a %d minute grace period to do so."
-msgstr "Je hebt %d minuten om dit te doen."
+msgstr "%d 分の猶予期間を設けます。"
 
 #: login-security-solution.php:702 tests/LoginMessageTest.php:129
 #: tests/LoginMessageTest.php:144
 msgid "The site is undergoing maintenance."
-msgstr "De site is in onderhoud."
+msgstr "サイトはメンテナンス中です。"
 
 #: login-security-solution.php:703 tests/LoginMessageTest.php:130
 #: tests/LoginMessageTest.php:145
 msgid "Please try again later."
-msgstr "Probeer het later opnieuw."
+msgstr "後ほど、再度試してください。"
 
 #: login-security-solution.php:792
 msgid ""
@@ -563,10 +552,10 @@ msgid ""
 "numbers and punctuation, or B) at least %d characters long. The password can "
 "not contain words related to you or this website."
 msgstr ""
-"Het wachtwoord moet tenminste aan één van deze eisen voldoen: A) ten minste "
-"%d karakters lang en moet hoofdletters, kleine letters, nummers en vreemde "
-"tekens bevatten, of B) ten minste %d karakters lang. Het wachtwoord mag geen "
-"woorden gerelateerd aan jou of deze website bevatten."
+"パスワードは、次のようにすべきです。A) 少なくても%d 文字以上で、大文字小文字"
+"（大文字小文字が存在しない言語を除く）、記号を含まなければなりません。 B) 少"
+"なくても%d 文字以上でなければなりません。パスワードは、あなたやこのウェブサイ"
+"トに関連する単語を含むことは出来ません。"
 
 # Translation from WordPress.
 #: login-security-solution.php:1074
@@ -583,86 +572,83 @@ msgid ""
 "Password MD5                 %5d     %s\n"
 msgstr ""
 "\n"
-"Kenmerk                      Aantal    Waarde van huidige poging\n"
+"コンポーネント                    回数     現在の攻撃からの値\n"
 "------------------------     -----     --------------------------------\n"
-"Netwerk IP                   %5d     %s\n"
-"Gebruikersnaam               %5d     %s\n"
-"Wachtwoord MD5               %5d     %s\n"
+"Network IP                   %5d     %s\n"
+"Username                     %5d     %s\n"
+"Password MD5                 %5d     %s\n"
 
 #: login-security-solution.php:1997 tests/LoginMessageTest.php:148
 #: tests/PasswordValidationTest.php:510
 msgid "Passwords must use ASCII characters."
-msgstr "Wachtwoorden moeten ASCII karakters gebruiken."
+msgstr "ASCII文字コードを使って下さい。"
 
 #: login-security-solution.php:1999 tests/PasswordValidationTest.php:580
 msgid ""
 "Passwords must either contain upper-case and lower-case letters or be %d "
 "characters long."
-msgstr ""
-"Wachtwoorden moeten óf zowel hoofd- als kleine letters bevatten óf %d "
-"karakters lang zijn."
+msgstr "パスワードは大文字小文字を含むか、%d 文字以上でなければなりません。"
 
 #: login-security-solution.php:2001 tests/PasswordValidationTest.php:658
 msgid "Password is too common."
-msgstr "Wachtwoord is te gewoon."
+msgstr "パスワードが簡単過ぎます。"
 
 #: login-security-solution.php:2003 tests/PasswordValidationTest.php:674
 msgid "Passwords can't be variations of dictionary words."
-msgstr "Wachtwoorden mogen geen variaties op bestaande woorden zijn."
+msgstr "パスワードは辞書の単語にすることは出来ません。"
 
 #: login-security-solution.php:2005 tests/PasswordValidationTest.php:486
 msgid "Password not set."
-msgstr "Wachtwoord is niet ingesteld."
+msgstr "パスワードが設定されていません。"
 
 #: login-security-solution.php:2007 tests/PasswordValidationTest.php:567
 msgid "Passwords must either contain numbers or be %d characters long."
-msgstr "Wachtwoorden moeten óf nummers bevatten óf %d karakters lang zijn."
+msgstr "パスワードは数字を含むか、%d 文字以上でなければなりません。"
 
 #: login-security-solution.php:2009 tests/PasswordValidationTest.php:554
 msgid ""
 "Passwords must either contain punctuation marks / symbols or be %d "
 "characters long."
-msgstr ""
-"Wachtwoorden moeten óf vreemde tekens bevatten óf %d karakters lang zijn."
+msgstr "パスワードは、記号を含むか、%d 文字以上でなければなりません。"
 
 #: login-security-solution.php:2011 tests/PasswordChangeTest.php:303
 msgid "Passwords can not be reused."
-msgstr "Wachtwoorden kunnen niet worden hergebruikt."
+msgstr "同じパスワードを再利用できません。"
 
 #: login-security-solution.php:2013 tests/PasswordValidationTest.php:606
 msgid "Passwords can't have that many sequential characters."
-msgstr "Wachtwoorden mogen niet zoveel opeenvolgende karakters bevatten."
+msgstr "パスワードは、多数の連続した文字を持つことは出来ません。"
 
 #: login-security-solution.php:2015 tests/PasswordValidationTest.php:593
 msgid "Passwords can't be sequential keys."
-msgstr "Wachtwoorden mogen geen opeenvolgende tekens bevatten (bijv. qwerty)."
+msgstr "パスワードは、連続したキーにすることは出来ません。"
 
 #: login-security-solution.php:2017 tests/LoginMessageTest.php:115
 #: tests/PasswordChangeTest.php:336 tests/PasswordValidationTest.php:527
 #: tests/PasswordValidationTest.php:541
 msgid "Password is too short."
-msgstr "Wachtwoord is te kort."
+msgstr "パスワードが短すぎます。"
 
 #: login-security-solution.php:2019 tests/PasswordValidationTest.php:497
 msgid "Passwords must be strings."
-msgstr "Wachtwoorden moeten tekenreeksen zijn."
+msgstr "文字列を使って下さい。"
 
 #: login-security-solution.php:2021 tests/PasswordValidationTest.php:645
 msgid "Passwords can't contain site info."
-msgstr "Wachtwoorden mogen geen informatie over de website bevatten."
+msgstr "パスワードにサイト情報を含むことができません。"
 
 #: login-security-solution.php:2023 tests/PasswordValidationTest.php:619
 #: tests/PasswordValidationTest.php:632
 msgid "Passwords can't contain user data."
-msgstr "Wachtwoorden mogen geen gebruikersgegevens bevatten."
+msgstr "パスワードにユーザーデータを含むことは出来ません。"
 
 #: login-security-solution.php:2175
 msgid "POTENTIAL INTRUSION AT %s"
-msgstr "MOGELIJKE INBRAAK OP %s"
+msgstr "%s の侵入の可能性"
 
 #: login-security-solution.php:2179
 msgid "Your website, %s, may have been broken in to."
-msgstr "Er is mogelijk ingebroken op %s."
+msgstr "あなたのウェブサイト「 %s 」は、壊れていました。"
 
 #: login-security-solution.php:2182
 msgid ""
@@ -670,57 +656,57 @@ msgid ""
 "combination of those components were a part of %d failed attempts to log in "
 "during the past %d minutes:"
 msgstr ""
-"Er is zojuist ingelogd door iemand met de volgende kenmerken. Eerder "
-"daarvoor was een combinatie van deze kenmerken deel van %d foutieve "
-"inlogpogingen in de afgelopen %d minuten:"
+"誰かが下記のコンポーネントを使ってログインされました。それに先立って、それら"
+"のコンポーネントのいくつかの組み合わせは、過去%d 分間に%d 回のログイン試行失"
+"敗がありました。"
 
 #: login-security-solution.php:2187
 msgid "They logged in from the following IP address: %s"
-msgstr "Ze ingelogd van de volgende IP-adres: %s"
+msgstr "IPアドレス「 %s 」からログインされました。"
 
 #: login-security-solution.php:2190
 msgid ""
 "The user has been logged out and will be required to confirm their identity "
 "via the password reset functionality."
 msgstr ""
-"De gebruiker is uitgelogd en dient zijn wachtwoord opnieuw in te stellen "
-"door gebruik te maken van de 'wachtwoord reset' functionaliteit."
+"そのユーザーがログアウトされ、パスワードリセット機能を通じて認証を要求される"
+"でしょう。"
 
 #: login-security-solution.php:2192
 msgid ""
 "WARNING: The '%s' setting you chose means this person has NOT been logged "
 "out and will NOT be required to confirm their identity."
 msgstr ""
-"WAARSCHUWING: De '%s' instelling die je hebt gekozen betekent dat personen "
-"NIET worden uitgelogd en NIET een nieuw wachtwoord moeten kiezen."
+"警告：選択中の「 %s 」設定は、ログアウトせずに、また認証確認を要求しないとい"
+"うことを意味します。"
 
 #: login-security-solution.php:2194
 msgid "A notification about this potential breach has been sent to the user."
-msgstr "Een melding van deze mogelijke inbraak is naar de gebruiker gestuurd."
+msgstr "違反の可能性がある通知が、ユーザーへ送信されました。"
 
 #: login-security-solution.php:2197
 msgid "This message is from the %s plugin (%s) for WordPress."
-msgstr "Deze melding is van de %s plugin (%s) voor WordPress."
+msgstr "このメッセージは、WordPressの%s プラグイン（ %s ）からです。"
 
 #: login-security-solution.php:2240
 msgid "VERIFY YOU LOGGED IN TO %s"
-msgstr "VERIFIEER DAT JE BENT INGELOGD BIJ %s"
+msgstr "%s へのログイン確認"
 
 #: login-security-solution.php:2244
 msgid ""
 "Someone just logged into your '%s' account at %s.  Was it you that logged "
 "in?  We are asking because the site happens to be under attack at the moment."
 msgstr ""
-"Er is zojuist ingelogd op jouw '%s' account op %s. Was jij dit? We vragen "
-"dit omdat de site mogelijk aangevallen wordt op dit moment."
+"誰かが %s よりあなたの「 %s 」アカウントにログインしました。あなたがログイン"
+"したのでしょうか。現在サイトが攻撃を受けているため、確認しています。"
 
 #: login-security-solution.php:2248
 msgid ""
 "To ensure your account is not being hijacked, you will have go through the "
 "'%s' process before logging in again."
 msgstr ""
-"Om zeker te zijn dat je account niet wordt gekaapt dien je het '%s' proces "
-"te volgen voordat je opnieuw kunt inloggen."
+"あなたのアカウントが不正アクセスをされていないことを確認するために、再度ログ"
+"インするまえに「 %s 」を通じて対応してください。"
 
 # Translation from WordPress.
 #: login-security-solution.php:2248
@@ -729,61 +715,61 @@ msgstr ""
 
 #: login-security-solution.php:2251
 msgid "If it was NOT YOU, please do the following right away:"
-msgstr "Als jij dit NIET was, volg dan de volgende instructies direct:"
+msgstr "もし、それが「あなた」でなければ、次の指示に従って下さい。"
 
 #: login-security-solution.php:2254
 msgid " * Log into the site and change your password."
-msgstr " * Log in om je wachtwoord te veranderen"
+msgstr "* サイトへログインし、パスワードを変更してください。"
 
 #: login-security-solution.php:2257
 msgid " * Send an email to %s letting them know it was not you who logged in."
-msgstr ""
-" * Stuur een e-mail naar %s om te laten weten dat jij niet probeerde in te "
-"loggen."
+msgstr "* ログインしたのがあなたでない通知を、%s へメールしてください。"
 
 #: login-security-solution.php:2298
 msgid "ATTACK HAPPENING TO %s"
-msgstr "AANVAL OP %s"
+msgstr "%s への攻撃が起こっています。"
 
 #: login-security-solution.php:2302
 msgid "Your website, %s, is undergoing a brute force attack."
-msgstr "Jouw website, %s, ondergaat op dit moment een brute force aanval."
+msgstr ""
+"あなたのウェブサイト「 %s 」は、総当り（ブルートフォース）攻撃を受けていま"
+"す。"
 
 #: login-security-solution.php:2305
 msgid ""
 "There have been at least %d failed attempts to log in during the past %d "
 "minutes that used one or more of the following components:"
 msgstr ""
-"Er zijn ten minste %d foutieve inlogpogingen geweest in de afgelopen %d "
-"minuten, waarbij de volgende kenmerken werden gebruikt:"
+"少なくても、下記の１つ以上のコンポーネントを使った過去%d 分間で%d 回のログイ"
+"ン試行失敗がありました。"
 
 #: login-security-solution.php:2310
 msgid "The most recent attempt came from the following IP address: %s"
-msgstr "De meest recente poging kwam van het volgende IP-adres: %s"
+msgstr "最近のほとんどの攻撃は、IPアドレス「 %s 」から来ました。"
 
 #: login-security-solution.php:2312
 msgid ""
 "The %s plugin (%s) for WordPress is repelling the attack by making their "
 "login failures take a very long time."
 msgstr ""
-"De %s plugin (%s) voor WordPress houdt de aanval af door de foutieve "
-"inlogpogingen ernstig te vertragen."
+"WordPressの%s プラグイン（ %s ）は、ログイン失敗に長時間費やさせることで、攻"
+"撃を防ぎます。"
 
 #: login-security-solution.php:2316
 msgid ""
 "This attacker will also be denied access in the event they stumble upon "
 "valid credentials."
 msgstr ""
-"De aanvaller zal ook de toegang worden ontzegt wanneer hij met geldige "
-"gegevens inlogt."
+"攻撃者が偶然有効な証明書を見つけたとしても、攻撃者もまたこのイベント内でのア"
+"クセスを拒否されるでしょう。"
 
 #: login-security-solution.php:2322
 msgid ""
 "Further notifications about this attacker will only be sent if the attack "
 "stops for at least %d minutes and then resumes."
 msgstr ""
-"Verdere meldingen over deze aanvaller zullen worden verstuurd wanneer de "
-"aanval gedurende %d minuten wordt onderbroken en weer verder gaat."
+"この攻撃者についての追加的な通知は、すくなくても%d 分間攻撃が止まった後に再開"
+"した場合にのみ送信されます。"
 
 #. Plugin Name of the plugin/theme
 msgid "Login Security Solution"
@@ -800,10 +786,10 @@ msgid ""
 "attacks and breaches, permits administrators to disable logins for "
 "maintenance or emergency reasons and reset all passwords."
 msgstr ""
-"Vereist zeer sterke wachtwoorden, wendt brute force aanvallen af, voorkomt "
-"vrijgeven van logininformatie, laat inactieve sessies verlopen, meldt "
-"beheerders aanvallen en inbraken, staat beheerders toe om inloggen uit te "
-"schakelen voor noodgevallen en om alle wachtwoorden opnieuw in te stellen."
+"次の機能があります。非常に強力なパスワードの要求、総当り（ブルートフォース）"
+"攻撃の防衛、ログイン情報漏洩の防衛、使用されていないセッションの破棄、管理者"
+"への攻撃や違反通知、メンテナンスや緊急時対応のために、管理者によるログインを"
+"無効を許可、すべてのパスワードリセット。"
 
 #. Author of the plugin/theme
 msgid "Daniel Convissor"

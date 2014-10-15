@@ -94,18 +94,18 @@ The tests have caught every password dictionary entry I've tried.
 
 For reference, the similar plugins include:
 
-* [6Scan Security](http://wordpress.org/extend/plugins/6scan-protection/)
-* [Better WP Security](http://wordpress.org/extend/plugins/better-wp-security/)
-* [Enforce Strong Password](http://wordpress.org/extend/plugins/enforce-strong-password/)
-* [Force Strong Passwords](http://wordpress.org/extend/plugins/force-strong-passwords/)
-* [Limit Login Attempts](http://wordpress.org/extend/plugins/limit-login-attempts/)
-* [Login Lock](http://wordpress.org/extend/plugins/login-lock/)
-* [Login LockDown](http://wordpress.org/extend/plugins/login-lockdown/)
-* [PMC Lockdown](http://wordpress.org/extend/plugins/pmc-lockdown/)
-* [Simple Login Lockdown](http://wordpress.org/extend/plugins/simple-login-lockdown/)
-* [Wordfence Security](http://wordpress.org/extend/plugins/wordfence/)
-* [WP Login Security](http://wordpress.org/extend/plugins/wp-login-security/)
-* [WP Login Security 2](http://wordpress.org/extend/plugins/wp-login-security-2/)
+* [6Scan Security](https://wordpress.org/plugins/6scan-protection/)
+* [Better WP Security](https://wordpress.org/plugins/better-wp-security/)
+* [Enforce Strong Password](https://wordpress.org/plugins/enforce-strong-password/)
+* [Force Strong Passwords](https://wordpress.org/plugins/force-strong-passwords/)
+* [Limit Login Attempts](https://wordpress.org/plugins/limit-login-attempts/)
+* [Login Lock](https://wordpress.org/plugins/login-lock/)
+* [Login LockDown](https://wordpress.org/plugins/login-lockdown/)
+* [PMC Lockdown](https://wordpress.org/plugins/pmc-lockdown/)
+* [Simple Login Lockdown](https://wordpress.org/plugins/simple-login-lockdown/)
+* [Wordfence Security](https://wordpress.org/plugins/wordfence/)
+* [WP Login Security](https://wordpress.org/plugins/wp-login-security/)
+* [WP Login Security 2](https://wordpress.org/plugins/wp-login-security-2/)
 
 
 = Compatibility with Other Plugins =
@@ -117,7 +117,8 @@ conflicts during program execution.  Please read the FAQ!
 = Translations =
 
 * Deutsche, Deutschland (German, Germany) (de_DE) by Christian Foellmann
-* Français, français (French, France) (fr_FR) by [mermouy](http://wordpress.org/support/profile/mermouy) and and Fx Bénard
+* Français, français (French, France) (fr_FR) by [mermouy](https://profiles.wordpress.org/mermouy) and and Fx Bénard
+* 日本語, 日本国 (Japanese, Japan) (ja_JP) by [motoyamayuki](https://profiles.wordpress.org/motoyamayuki/)
 * Nederlands, Nederland (Dutch, Netherlands) (nl_NL) by Friso van Wieringen
 * Português, Brasil (Portugese, Brazil) (pt_BR) by Valdir Trombini
 
@@ -198,7 +199,7 @@ has probably gotten itself into your computer.
                 $_SERVER['HTTP_X_FORWARDED_FOR']);
 
 1. Download the Login Security Solution zip file from WordPress' plugin
-    site: `http://wordpress.org/extend/plugins/login-security-solution/`
+    site: `https://wordpress.org/plugins/login-security-solution/`
 
 1. Unzip the file.
 
@@ -272,6 +273,32 @@ has probably gotten itself into your computer.
     WordPress' "Plugins" page.
 
 1. Ensure your password strength by changing it.
+
+
+= Hooks =
+
+Login Security Solution provides [hooks](https://codex.wordpress.org/Plugin_API)
+in critical methods, allowing you to add custom behaviors.
+
+== Actions ==
+
+* login_security_solution_insert_fail
+* login_security_solution_notify_breach
+* login_security_solution_notify_fail
+* login_security_solution_fail_tier_dos
+
+== Filters ==
+
+The following filters allow customizing email subjects and messages.  If
+either the "subject"or "message" filters in a method returns an empty
+string, the given method will skip calling `wp_mail()`.
+
+* login_security_solution_notify_breach_subject
+* login_security_solution_notify_breach_message
+* login_security_solution_notify_breach_user_subject
+* login_security_solution_notify_breach_user_message
+* login_security_solution_notify_fail_subject
+* login_security_solution_notify_fail_message
 
 
 = Unit Tests =
@@ -480,6 +507,28 @@ on our GitHub.
 
 == Changelog ==
 
+= 0.47.0 (2014-10-15) =
+* Add the "DoS Tier," above "Delay Tier 3," beyond which respones are no
+longer slowed down, keeping sites from befalling Denial of Service conditions
+* Add the "Deletion Interval" and "Deletion Days" settings for
+automatically removing old data
+* Added "action" hooks:
+    - login_security_solution_insert_fail
+    - login_security_solution_notify_breach
+    - login_security_solution_notify_fail
+    - login_security_solution_fail_tier_dos
+* Added "filter" hooks. See "Hooks" in the "Installation" tab for more info.
+    - login_security_solution_notify_breach_subject
+    - login_security_solution_notify_breach_message
+    - login_security_solution_notify_breach_user_subject
+    - login_security_solution_notify_breach_user_message
+    - login_security_solution_notify_fail_subject
+    - login_security_solution_notify_fail_message
+* Escape WP's `table_prefix` before use
+* Use WP's remove_submenu_page() (instead of using an empty title) to keep
+Change All Passwords off the settings menu
+* Add label/id for settings fields
+
 = 0.46.0 (2014-10-03) =
 * Fix password policy hint broken by changes in WP 3.9
 * Adjust unit tests for new auth cookie format in WP 4.0
@@ -622,7 +671,7 @@ the user or the website.
 * Prevent "not a valid MySQL-Link resource" on auth cookie failure.
 * Increase default value of login_fail_notify from 20 to 50.
 * Add partial French translation.  Settings page needs doing.  Thanks
-[mermouy](http://wordpress.org/support/profile/mermouy)!
+[mermouy](https://profiles.wordpress.org/mermouy)!
 
 = 0.21.0 (2012-08-07) =
 * Fix is_pw_outside_ascii() to permit spaces.
@@ -656,9 +705,9 @@ against their user name.
 
 = 0.17.0 (2012-07-09) =
 * Fix network IP query in get_login_fail(). (Bug #1553,
-[deanmarktaylor](http://wordpress.org/support/profile/deanmarktaylor))
+[deanmarktaylor](https://profiles.wordpress.org/deanmarktaylor))
 * Rename files holding expected test results. (Bug #1552,
-[deanmarktaylor](http://wordpress.org/support/profile/deanmarktaylor))
+[deanmarktaylor](https://profiles.wordpress.org/deanmarktaylor))
 
 = 0.16.0 (2012-07-08) =
 * Have shell script gracefully handle value already being the desired value.
@@ -666,12 +715,12 @@ against their user name.
 = 0.15.0 (2012-07-06) =
 * Log auth cookie failures too.
 * Clean up sleep logic. (Bug #1549,
-[deanmarktaylor](http://wordpress.org/support/profile/deanmarktaylor))
+[deanmarktaylor](https://profiles.wordpress.org/deanmarktaylor))
 
 = 0.14.0 (2012-07-05) =
 * Fix emails being mistakenly sent in multisite mode that say "There have
 been at least 0 failed attempts to log in".  (Bug #1548,
-[deanmarktaylor](http://wordpress.org/support/profile/deanmarktaylor))
+[deanmarktaylor](https://profiles.wordpress.org/deanmarktaylor))
 * Add an `.htaccess` file that blocks access to this plugin's directory.
 
 = 0.13.0 (2012-07-01) =
@@ -800,5 +849,4 @@ problems under PHP 5.4.
 
 = To Do =
 
-* Delete old data in the `fail` table.
 * Provide a user interface to the `fail` table.
