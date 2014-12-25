@@ -3,7 +3,7 @@ Contributors: convissor
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=danielc%40analysisandsolutions%2ecom&lc=US&item_name=Donate%3a%20Login%20Security%20Solution&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: login, password, passwords, strength, strong, strong passwords, password strength, idle, timeout, maintenance, security, attack, hack, lock, lockdown, ban, brute force, brute, force, authentication, xml-rpc, auth, cookie, users
 Requires at least: 3.3
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: trunk
 
 Security against brute force attacks by tracking IP, name, password; requiring very strong passwords. Idle timeout. Maintenance mode lockdown.
@@ -118,6 +118,7 @@ conflicts during program execution.  Please read the FAQ!
 
 * Deutsche, Deutschland (German, Germany) (de_DE) by Christian Foellmann
 * Français, français (French, France) (fr_FR) by [mermouy](https://profiles.wordpress.org/mermouy) and and Fx Bénard
+* Italiano, Italia (Italian, Italy) (it_IT) by Daniele Passalacqua
 * 日本語, 日本国 (Japanese, Japan) (ja_JP) by [motoyamayuki](https://profiles.wordpress.org/motoyamayuki/)
 * Nederlands, Nederland (Dutch, Netherlands) (nl_NL) by Friso van Wieringen
 * Português, Brasil (Portugese, Brazil) (pt_BR) by Valdir Trombini
@@ -506,6 +507,10 @@ on our GitHub.
 
 
 == Changelog ==
+
+= 0.50.0 (2014-12-25) =
+* Take advantage of WP 4.1's new password_hint filter
+* Add Italian translation
 
 = 0.49.0 (2014-11-10) =
 * Fix password policy hint on password reset form broken by changes in WP
